@@ -8,7 +8,7 @@ Video chapters: Attacks 00:00 · Enemies mm:ss · Mechanic mm:ss · Code mm:ss
 
 **How to play / test**
 - Build: Build/<name>.exe | Editor: Assets/_Project/Scenes/Arena.unity
-- Move: [ ] Attack 1: [ ] Attack 2: [ ] Attack 3: [ ] Mechanic: [ ]
+- Move: [W - forward, A - left, S - down, D - right] Attack 1: [ ] Attack 2: [ ] Attack 3: [ ] Mechanic: [T and mouse position. Activating will teleport player to current mousepoition]
 - Test mode: 1/2/3 spawn enemies · R reset · [key] invincible
 
 **Type and Mechanic**
@@ -31,4 +31,4 @@ to beat it |
 - [ ]
 
 **Third-party assets and AI use**
-- [Kenney pack names, other tools, what for]
+- [Kenney_tiny-dungeon, other tools, what for]
