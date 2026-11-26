@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.41, y: 4.81, z: 0}
-  m_LocalScale: {x: 12.7557, y: 13.423, z: 1}
+  m_LocalScale: {x: 1.2832111, y: 1.551657, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1768695387652183003}
@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 44e7019278b4a2d41b8a7533429fdffe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShieldEnemy
+  HP: 0
 --- !u!1 &5490258512128549296
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,8 +132,8 @@ Transform:
   m_GameObject: {fileID: 5490258512128549296}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.084, y: -0.029, z: 2}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0.33, y: -0.36, z: 2}
+  m_LocalScale: {x: 1.2052, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8030451287663556002}
@@ -184,7 +185,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_MaskInteraction: 0
   m_Sprite: {fileID: 2702405904602438015, guid: 2f71df232049dee459aee1e6e0683ac3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

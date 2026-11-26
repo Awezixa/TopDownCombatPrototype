@@ -3,22 +3,14 @@ using UnityEngine.InputSystem;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject soldierPrefab;
-    [SerializeField]
-    private GameObject magePrefab;
-    [SerializeField]
-    private GameObject shieldPrefab; 
-    [SerializeField]
-    private float spawnRadius = 2f;
-   [SerializeField]
-    private Transform spawnPoint; // optional: where enemies appear
+    [SerializeField] private GameObject soldierPrefab;
+    [SerializeField] private GameObject magePrefab;
+    [SerializeField] private GameObject shieldPrefab; 
+    [SerializeField] private Transform spawnPoint; 
+    [SerializeField] private float spacing = 3f;   // distance between enemies spawn positions
+    [SerializeField] private int slotCount = 5;    // how many slots in the row
 
-
-
-
-
-
+    private int nextSlot;
 
 
     private void Update()
@@ -41,22 +33,30 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+
+    private Vector3 GetSlotPosition(int index)
+    {
+        Vector3 basePosition = spawnPoint != null ? spawnPoint.position : transform.position;
+
+        // centre the row on the spawn point
+        float offsetX = (index - (slotCount - 1) * 0.5f) * spacing;
+        return basePosition + new Vector3(offsetX, 0f, 0f);
+    }
+
     private void Spawn(GameObject prefab)
     {
         if (prefab == null) return;
 
-        Vector3 basePosition = spawnPoint != null ? spawnPoint.position : transform.position;
-
-        // random point inside a circle, converted to a Vector3 (2D game, so Z stays the same)
-        Vector2 offset = Random.insideUnitCircle * spawnRadius;
-        Vector3 position = basePosition + new Vector3(offset.x, offset.y, 0f);
-
-        Instantiate(prefab, position, Quaternion.identity);
+        Instantiate(prefab, GetSlotPosition(nextSlot), Quaternion.identity);//instantiates the selected prefab to the next available spot
+        nextSlot = (nextSlot + 1) % slotCount;
     }
 
-
-
-
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        for (int i = 0; i < slotCount; i++)
+            Gizmos.DrawWireSphere(GetSlotPosition(i), 0.3f);
+    }
 
 
 }
