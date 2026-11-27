@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
-public class PlayerMechanic : MonoBehaviour
+public class PlayerMechanic : MonoBehaviour, ICooldown
 {
     [SerializeField] private float teleportRadius = 5.0f;
     [SerializeField] private float cooldown = 8f;

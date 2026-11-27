@@ -1,14 +1,18 @@
 using UnityEngine;
 
-public class NewMonoBehaviourScript : MonoBehaviour
+public class NewMonoBehaviourScript : MonoBehaviour, ICooldown
 {
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float cooldown = 1f;
 
+
     private float nextFireTime;
     public bool IsReady => Time.time >= nextFireTime;
     public float CooldownNormalized => Mathf.Clamp01((nextFireTime - Time.time) / cooldown);
+    public float RemainingTime => Mathf.Max(0f, nextFireTime - Time.time);
+
+
 
     private void Update()
     {

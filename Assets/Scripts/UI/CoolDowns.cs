@@ -4,22 +4,34 @@ using UnityEngine.UI;
 
 public class CoolDowns : MonoBehaviour
 {
-    [SerializeField] private PlayerMechanic mechanic;
-    [SerializeField] private Image cooldownOverlay;   // the Filled image
-    [SerializeField] private TMP_Text cooldownText;   // optional
+    [SerializeField] private MonoBehaviour source;   // any script that implements ICooldown
+    [SerializeField] private Image cooldownOverlay;  // the Filled image
+    [SerializeField] private TMP_Text cooldownText;  // optional
 
+    private ICooldown cooldown;
 
-    // Update is called once per frame
-    void Update()
+    private void Awake()
     {
-        cooldownOverlay.fillAmount = mechanic.CooldownNormalized;
+        cooldown = source as ICooldown;
+        if (cooldown == null)
+            Debug.LogError($"{name}: Source must be a script that implements ICooldown", this);
+    }
+
+    private void Update()
+    {
+        if (cooldown == null) return;
+
+        cooldownOverlay.fillAmount = cooldown.CooldownNormalized;
 
         if (cooldownText != null)
         {
-            bool onCooldown = !mechanic.IsReady;
+            bool onCooldown = !cooldown.IsReady;
             cooldownText.enabled = onCooldown;
             if (onCooldown)
-                cooldownText.text = Mathf.CeilToInt(mechanic.RemainingTime).ToString();
+                cooldownText.text = Mathf.CeilToInt(cooldown.RemainingTime).ToString();
         }
     }
+
+
+
 }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UltimateAttack : MonoBehaviour
+public class UltimateAttack : MonoBehaviour, ICooldown
 {
     [SerializeField] private UltimateBomb bombPrefab;
     [SerializeField] private Transform throwPoint;
