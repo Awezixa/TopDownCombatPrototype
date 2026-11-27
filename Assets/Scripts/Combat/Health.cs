@@ -11,6 +11,8 @@ public class Health : MonoBehaviour, IDamageable
 {
     public float Max { get; private set; }
     public float Current { get; private set; }
+    public float execute => Max > 0f ? Current / Max : 0f;
+    public bool Invincible;   // for cheat for player
 
     public event Action<float> Damaged;
     public event Action Died;

@@ -3,11 +3,12 @@ using UnityEngine;
 
 public enum StatusEffects { None, Burn, Blind}
 
-
+[CreateAssetMenu(menuName = "Combat/Enemy Stats")]
 public class EnemyStats : ScriptableObject
 {
     //general info
     public float maxHP = 20f;
+    public float moveSpeed = 2f;
 
     //attack stats
     public float attackDmg = 5f;

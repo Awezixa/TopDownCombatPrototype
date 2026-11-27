@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 4936381077074293509}
   - component: {fileID: 4385946172170724374}
   - component: {fileID: 6580347025331504840}
+  - component: {fileID: 2284079759102843795}
+  - component: {fileID: 5577620138101472891}
   m_Layer: 0
   m_Name: Mage
   m_TagString: Untagged
@@ -107,9 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7b7997e2b67632468eefbd8439f3597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WarlockEnemy
-  attackRadius: 4
-  telegraphTime: 2
-  cooldown: 1
+  data: {fileID: 11400000, guid: 5987778f7ab4e3343a643486353565b1, type: 2}
   projectilePrefab: {fileID: 8383922917067982994, guid: cf0c27de15502f448aaf43c7f59a1ff8, type: 3}
   projectileColor: {r: 1, g: 0, b: 0, a: 1}
   telegraphLine: {fileID: 6580347025331504840}
@@ -288,3 +288,29 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &2284079759102843795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861401354153615114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc0b3a16a6e88ab4da2b959a3613d30a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Health
+  Invincible: 0
+--- !u!114 &5577620138101472891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2861401354153615114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 602ed1059bd29124b8e2913a145e4a6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectHandler
+  sprite: {fileID: 0}
